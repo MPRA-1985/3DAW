@@ -1,0 +1,60 @@
+<html lang = "pt-br">
+
+	<head>
+		<title>Calculadora Básica</title>
+		<meta charset="utf-8">
+		<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+
+		<style>
+
+			.btn {
+				margin-top: 20px;
+			}
+
+		</style>
+
+	</head>
+
+	<body>
+
+		<div class="col-sm-12 ">
+ 			
+ 			<h2>Calculadora</h2>
+
+ 			<form action="calc.php" method="get">
+
+				<h4>Primeiro numero:</h4>
+				<input name="num1" type="text" />
+
+				<h4>Segundo numero:</h4>
+				<input name="num2" type="text" />
+
+				<h4>Operacao:</h4>
+
+				<div class="col-sm-12">
+					<input type="radio" name="operacao" value="soma" checked> soma
+				</div>
+
+				<div class="col-sm-12">
+					<input type="radio" name="operacao" value="subtracao"> subtração
+				</div>
+
+				<div class="col-sm-12">
+					<input type="radio" name="operacao" value="multiplicacao"> multipicação
+				</div>
+
+				<div class="col-sm-12">
+					<input type="radio" name="operacao" value="divisao"> divisão
+				</div>
+
+				<div class="col-sm-12">
+					<input class="btn" type="submit" value="calcular" />
+				</div>
+				
+
+			</form>
+
+ 		</div>
+
+	</body>
+</html>
