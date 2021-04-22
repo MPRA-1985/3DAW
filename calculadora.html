@@ -4,6 +4,7 @@
 		<title>Calculadora Básica</title>
 		<meta charset="utf-8">
 		<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 
 		<style>
 
@@ -11,50 +12,142 @@
 				margin-top: 20px;
 			}
 
+			h2 {
+				font-size: 2rem;
+			    color: #8b8b8b;
+			    text-transform: uppercase;
+			}
+
+			.row {
+				margin-right: 0;
+    			margin-left: 0;
+			}
+
+			h4 {
+			    margin-bottom: 10px;
+			    margin-top: 30px;
+			    font-size: 15px;
+			    color: #009688;
+			    text-transform: uppercase;
+			    font-weight: bold;
+			    display: inline-block;
+			    margin-right: 20px;
+			}
+
+			#calc {
+				width: 300px;
+			    border: 5px solid #f2f2f2;
+			    border-radius: 5px;
+			    padding: 15px;
+			    margin-top: 30px;
+			    background-color: #f8f8f8;
+			}
+
+			input[type='number'], input[type='submit'] {
+				width: 100%;
+				border: 1px solid #ccc;
+    			border-radius: 5px;
+			}
+
+			input[type='number'] {
+				width: 50px;
+    			height: 40px;
+			}
+
+			input[disabled='disabled'], input[disabled='true'] {
+				cursor: not-allowed !important;
+			}
+
+
+
+
 		</style>
 
 	</head>
 
 	<body>
 
+			
+	<div id="calc" class="mx-auto">
 		<div class="col-sm-12 ">
- 			
- 			<h2>Calculadora</h2>
+			<h2>Calculadora</h2>
+		</div>
+	
+		<form action="calc.php" method="get">
 
- 			<form action="calc.php" method="get">
-
+			<div class="col-sm-12">
 				<h4>Primeiro numero:</h4>
-				<input name="num1" type="text" />
+				<input name="num1" type="number" />
+			</div>
 
+			<div class="col-sm-12">
 				<h4>Segundo numero:</h4>
-				<input name="num2" type="text" />
+				<input name="num2" type="number"  />
+			</div>
 
+
+			<div class="col-sm-12 ">
 				<h4>Operacao:</h4>
+			</div>
 
-				<div class="col-sm-12">
-					<input type="radio" name="operacao" value="soma" checked> soma
-				</div>
+			<div class="col-sm-12">
+				<input type="radio" name="operacao" value="soma" checked> soma
+			</div>
 
-				<div class="col-sm-12">
-					<input type="radio" name="operacao" value="subtracao"> subtração
-				</div>
+			<div class="col-sm-12">
+				<input type="radio" name="operacao" value="subtracao"> subtração
+			</div>
 
-				<div class="col-sm-12">
-					<input type="radio" name="operacao" value="multiplicacao"> multipicação
-				</div>
+			<div class="col-sm-12">
+				<input type="radio" name="operacao" value="multiplicacao"> multipicação
+			</div>
 
-				<div class="col-sm-12">
-					<input type="radio" name="operacao" value="divisao"> divisão
-				</div>
+			<div class="col-sm-12">
+				<input type="radio" name="operacao" value="divisao"> divisão
+			</div>
 
-				<div class="col-sm-12">
-					<input class="btn" type="submit" value="calcular" />
-				</div>
-				
+			<div class="col-sm-12">
+				<input type="radio" name="operacao" value="potenciacao"> potenciação
+			</div>
 
-			</form>
+			<div class="col-sm-12">
+				<input type="radio" name="operacao" value="raizQuadrada"> raíz quadrada
+			</div>
 
- 		</div>
+			<div class="col-sm-12">
+				<input type="radio" name="operacao" value="umSobreX"> ¹/x
+			</div>
+
+			<div class="col-sm-12">
+				<input type="radio" name="operacao" value="porcentagem"> porcentagem
+			</div>
+
+			<div class="col-sm-12">
+				<input class="btn" type="submit" value="calcular" />
+			</div>
+			
+
+		</form>
+
+	</div>
+
 
 	</body>
 </html>
+
+<script type="text/javascript">
+
+	$( " input[type='radio'] " ).click( function(){
+
+    	var teste = $(this).attr("value");
+    	console.log(teste);
+
+    	if ( teste == "raizQuadrada" || teste == "umSobreX" ) {
+    		$("input[name='num2']").attr("disabled", "true");
+    	} else {
+    		$("input[name='num2']").removeAttr("disabled");
+    	}
+
+	});
+				
+</script>
